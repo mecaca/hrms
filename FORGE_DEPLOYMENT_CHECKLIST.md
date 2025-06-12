@@ -230,8 +230,9 @@ echo '/swapfile none swap sw 0 0' | tee -a /etc/fstab
 
 ### Client Documentation
 - [ ] **Login Credentials**: Provided securely to client
-- [ ] **User Guide**: Basic user guide provided
-- [ ] **Admin Guide**: Administrator guide provided
+- [ ] **Staff User Guide**: `USER_GUIDE_STAFF.md` provided to all employees
+- [ ] **Admin User Guide**: `USER_GUIDE_ADMIN.md` provided to administrators
+- [ ] **Training Guide**: `TRAINING_GUIDE.md` provided for implementation
 - [ ] **Support Information**: Contact details for support
 
 ### System Documentation

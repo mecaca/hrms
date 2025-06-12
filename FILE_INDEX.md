@@ -44,6 +44,14 @@
 | `DEPLOYMENT_CHECKLIST.md` | Step-by-step checklist | Deployment teams |
 | `SETUP_COMPLETION_SUMMARY.md` | Project completion summary | Project managers |
 
+### **User Guides**
+| File | Purpose | Audience |
+|------|---------|----------|
+| `USER_GUIDE_STAFF.md` | Complete employee user guide | All staff/employees |
+| `USER_GUIDE_ADMIN.md` | Administrator and HR manager guide | HR admins, system admins |
+| `TRAINING_GUIDE.md` | Training program and implementation | Training teams, managers |
+| `USER_DOCUMENTATION_INDEX.md` | Documentation overview and index | All stakeholders |
+
 ## 🎯 Usage Guide
 
 ### **For New Organizations:**

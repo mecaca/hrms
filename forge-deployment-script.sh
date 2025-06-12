@@ -13,19 +13,19 @@ $FORGE_COMPOSER install --no-interaction --prefer-dist --optimize-autoloader --n
 if [ -f artisan ]; then
     # Run database migrations
     $FORGE_PHP artisan migrate --force
-    
+
     # Cache configuration for better performance
     $FORGE_PHP artisan config:cache
     $FORGE_PHP artisan route:cache
     $FORGE_PHP artisan view:cache
     $FORGE_PHP artisan event:cache
-    
+
     # Restart queue workers
     $FORGE_PHP artisan queue:restart
-    
+
     # Clear and regenerate optimized class loader
     $FORGE_PHP artisan optimize
-    
+
     # Clear old cached views and config if needed
     $FORGE_PHP artisan optimize:clear
 fi

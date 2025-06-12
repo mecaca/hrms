@@ -274,6 +274,9 @@ php artisan view:cache
 - **Setup Guide**: `ORGANIZATION_SETUP.md`
 - **Quick Deployment**: `QUICK_DEPLOYMENT.md`
 - **Configuration Template**: `organization-config.template`
+- **Staff User Guide**: `USER_GUIDE_STAFF.md`
+- **Administrator Guide**: `USER_GUIDE_ADMIN.md`
+- **Training Guide**: `TRAINING_GUIDE.md`
 - **Application Logs**: `storage/logs/laravel.log`
 
 ---
