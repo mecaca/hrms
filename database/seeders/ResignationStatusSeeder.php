@@ -15,7 +15,8 @@ class ResignationStatusSeeder extends Seeder
      */
     public function run(): void
     {
-        ResignationStatus::truncate();
+        // Use delete instead of truncate to avoid foreign key constraint issues
+        ResignationStatus::query()->delete();
 
         foreach (EnumsResignationStatus::cases() as $status) {
             ResignationStatus::create([

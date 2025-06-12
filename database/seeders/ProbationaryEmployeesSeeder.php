@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Shift;
 use App\Enums\UserRole;
 use App\Models\Employee;
+use App\Models\JobTitle;
 use App\Enums\UserStatus;
 use App\Models\JobFamily;
 use App\Enums\AccountType;
@@ -30,11 +31,26 @@ class ProbationaryEmployeesSeeder extends Seeder
 
         $jobFamilies->each(function ($family) {
             $employee = Employee::factory()->create();
-            $family = $family->jobTitles->first();
-            $name = $family->job_title;
+            
+            // Get job title with null safety and fallback logic
+            $jobTitle = $family->jobTitles->first();
+            
+            if (!$jobTitle) {
+                // If no job titles in this family, try to find any job title
+                $jobTitle = JobTitle::first();
+            }
+            
+            if (!$jobTitle) {
+                // Last resort: create a job title
+                $jobTitle = JobTitle::factory()->create([
+                    'job_title' => 'Probationary Employee - ' . $family->job_family_name
+                ]);
+            }
+            
+            $name = $jobTitle->job_title;
 
             $employee->jobDetail()->create([
-                'job_title_id'  => $family->job_title_id,
+                'job_title_id'  => $jobTitle->job_title_id,
                 'area_id'       => SpecificArea::where('area_name', 'Head Office')->first()->area_id,
                 'shift_id'      => Shift::inRandomOrder()->first()->shift_id,
                 'emp_status_id' => EmploymentStatus::PROBATIONARY,

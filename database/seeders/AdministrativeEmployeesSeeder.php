@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Shift;
 use App\Enums\UserRole;
 use App\Models\Employee;
+use App\Models\JobTitle;
 use App\Enums\UserStatus;
 use App\Models\JobFamily;
 use App\Enums\AccountType;
@@ -28,16 +29,53 @@ class AdministrativeEmployeesSeeder extends Seeder
         activity()->withoutLogs(function () {
             $employee = Employee::factory()->create();
 
-            $jobTitle = JobFamily::with(['jobTitles' => function ($query) {
+            // Try to find Administrative job family with Office Staff job titles
+            $jobFamily = JobFamily::with(['jobTitles' => function ($query) {
                 $query->whereLike('job_title', "%Office Staff%");
             }])
                 ->whereLike('job_family_name', "%Administrative%")
-                ->first()->jobTitles->random()->job_title_id;
+                ->first();
+
+            $jobTitleId = null;
+            if ($jobFamily && $jobFamily->jobTitles->isNotEmpty()) {
+                $jobTitleId = $jobFamily->jobTitles->random()->job_title_id;
+            } else {
+                // Fallback: try to find any Administrative job title
+                $adminFamily = JobFamily::with('jobTitles')
+                    ->whereLike('job_family_name', "%Administrative%")
+                    ->first();
+                
+                if ($adminFamily && $adminFamily->jobTitles->isNotEmpty()) {
+                    $jobTitleId = $adminFamily->jobTitles->random()->job_title_id;
+                } else {
+                    // Final fallback: use any job title or create one
+                    $jobTitle = JobTitle::inRandomOrder()->first();
+                    if (!$jobTitle) {
+                        $jobTitle = JobTitle::factory()->create(['job_title' => 'Administrative Assistant']);
+                    }
+                    $jobTitleId = $jobTitle->job_title_id;
+                }
+            }
+
+            // Get or create area
+            $headOffice = SpecificArea::where('area_name', 'Head Office')->first();
+            if (!$headOffice) {
+                $headOffice = SpecificArea::inRandomOrder()->first();
+                if (!$headOffice) {
+                    $headOffice = SpecificArea::factory()->create(['area_name' => 'Head Office']);
+                }
+            }
+
+            // Get or create shift
+            $shift = Shift::inRandomOrder()->first();
+            if (!$shift) {
+                $shift = Shift::factory()->create();
+            }
 
             $employee->jobDetail()->updateOrCreate([
-                'job_title_id'  => $jobTitle,
-                'area_id'       => SpecificArea::where('area_name', 'Head Office')->first()->area_id,
-                'shift_id'      => Shift::inRandomOrder()->first()->shift_id,
+                'job_title_id'  => $jobTitleId,
+                'area_id'       => $headOffice->area_id,
+                'shift_id'      => $shift->shift_id,
                 'emp_status_id' => EmploymentStatus::REGULAR,
             ]);
 

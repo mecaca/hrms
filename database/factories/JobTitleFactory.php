@@ -3,6 +3,8 @@
 namespace Database\Factories;
 
 use App\Models\Department;
+use App\Models\JobLevel;
+use App\Models\JobFamily;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -21,6 +23,8 @@ class JobTitleFactory extends Factory
             'job_title' => fake()->jobTitle(),
             'job_desc' => fake()->paragraph(500),
             'department_id' => Department::factory(),
+            'job_level_id' => JobLevel::factory(),
+            'job_family_id' => JobFamily::factory(),
         ];
     }
 }

@@ -4,6 +4,7 @@ use App\Models\Applicant;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 
 return new class extends Migration
 {
@@ -22,7 +23,7 @@ return new class extends Migration
 
             $table->longText('experience_desc');
             $table->timestamps();
-            $table->index(['experience_desc']);
+            $table->index([DB::raw('experience_desc(255)')], 'applicant_experiences_experience_desc_index');
         });
     }
 

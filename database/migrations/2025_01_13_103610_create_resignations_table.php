@@ -41,11 +41,12 @@ return new class extends Migration
 
                 $table->timestamp('retracted_at')->nullable();
 
-                $table->foreignIdFor(ResignationStatus::class, 'resignation_status_id')
-                ->nullable()
-                ->constrained('resignation_statuses', 'resignation_status_id')
-                ->cascadeOnUpdate()
-                ->cascadeOnDelete();
+                $table->unsignedSmallInteger('resignation_status_id')->nullable();
+                $table->foreign('resignation_status_id')
+                    ->references('resignation_status_id')
+                    ->on('resignation_statuses')
+                    ->cascadeOnUpdate()
+                    ->cascadeOnDelete();
 
                 $table->timestamp('filed_at')->useCurrent();
         });

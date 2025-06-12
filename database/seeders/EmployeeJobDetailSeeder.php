@@ -18,12 +18,32 @@ class EmployeeJobDetailSeeder extends Seeder
     public function run(): void
     {
         $employees = Employee::all()->map(function ($item) {
+            // Get records with null safety
+            $jobTitle = JobTitle::inRandomOrder()->first();
+            $area = SpecificArea::inRandomOrder()->first();
+            $shift = EmployeeShift::inRandomOrder()->first();
+            $empStatus = EmploymentStatus::inRandomOrder()->first();
+
+            // Create fallback records if none exist
+            if (!$jobTitle) {
+                $jobTitle = JobTitle::factory()->create();
+            }
+            if (!$area) {
+                $area = SpecificArea::factory()->create();
+            }
+            if (!$shift) {
+                $shift = EmployeeShift::factory()->create();
+            }
+            if (!$empStatus) {
+                $empStatus = EmploymentStatus::factory()->create();
+            }
+
             return [
                 'employee_id'   => $item->employee_id,
-                'job_title_id'  => JobTitle::inRandomOrder()->first()->job_title_id,
-                'area_id'       => SpecificArea::inRandomOrder()->first()->area_id,
-                'shift_id'      => EmployeeShift::inRandomOrder()->first()->employee_shift_id,
-                'emp_status_id' => EmploymentStatus::inRandomOrder()->first()->emp_status_id,
+                'job_title_id'  => $jobTitle->job_title_id,
+                'area_id'       => $area->area_id,
+                'shift_id'      => $shift->employee_shift_id,
+                'emp_status_id' => $empStatus->emp_status_id,
                 'hired_at'      => now(),
             ];
         })->toArray();

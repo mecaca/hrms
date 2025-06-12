@@ -4,6 +4,7 @@ use App\Models\Applicant;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 return new class extends Migration
 {
@@ -22,7 +23,7 @@ return new class extends Migration
 
             $table->longText('skill');
             $table->timestamps();
-            $table->index(['skill']);
+            $table->index([DB::raw('skill(255)')], 'applicant_skills_skill_index');
         });
     }
 

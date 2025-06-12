@@ -78,13 +78,17 @@ return new class extends Migration
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
 
-            $table->foreignIdFor(InterviewParameter::class, 'parameter_id')
-                ->constrained('interview_parameters', 'parameter_id')
+            $table->unsignedSmallInteger('parameter_id');
+            $table->foreign('parameter_id')
+                ->references('parameter_id')
+                ->on('interview_parameters')
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
 
-            $table->foreignIdFor(InterviewRating::class, 'rating_id')
-                ->constrained('interview_ratings', 'rating_id')
+            $table->unsignedSmallInteger('rating_id');
+            $table->foreign('rating_id')
+                ->references('rating_id')
+                ->on('interview_ratings')
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
 
@@ -99,13 +103,17 @@ return new class extends Migration
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
 
-            $table->foreignIdFor(InterviewParameter::class, 'parameter_id')
-                ->constrained('interview_parameters', 'parameter_id')
+            $table->unsignedSmallInteger('parameter_id');
+            $table->foreign('parameter_id')
+                ->references('parameter_id')
+                ->on('interview_parameters')
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
 
-            $table->foreignIdFor(InterviewRating::class, 'rating_id')
-                ->constrained('interview_ratings', 'rating_id')
+            $table->unsignedSmallInteger('rating_id');
+            $table->foreign('rating_id')
+                ->references('rating_id')
+                ->on('interview_ratings')
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
 

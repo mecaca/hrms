@@ -17,8 +17,15 @@ class JobVacancyFactory extends Factory
      */
     public function definition(): array
     {
+        $jobTitle = JobTitle::inRandomOrder()->first();
+
+        if (!$jobTitle) {
+            // If no JobTitle exists, create one with factory
+            $jobTitle = JobTitle::factory()->create();
+        }
+
         return [
-            'job_title_id' => JobTitle::inRandomOrder()->first()->job_title_id,
+            'job_title_id' => $jobTitle->job_title_id,
             'vacancy_count' => fake()->numberBetween(0, 10),
             'application_deadline_at' => fake()->optional()->dateTimeBetween('now', '+1 year'),
         ];

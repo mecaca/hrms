@@ -22,7 +22,7 @@ return new class extends Migration
 
             $table->longText('experience_desc');
             $table->timestamps();
-            $table->index(['experience_desc']);
+            // Removed index on longText column as it requires key length specification
         });
     }
 

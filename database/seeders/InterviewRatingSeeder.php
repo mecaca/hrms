@@ -14,8 +14,8 @@ class InterviewRatingSeeder extends Seeder
      */
     public function run(): void
     {
-
-        InterviewRating::truncate();
+        // Use delete instead of truncate to avoid foreign key constraint issues
+        InterviewRating::query()->delete();
 
         foreach (EnumsInterviewRating::cases() as $status) {
             InterviewRating::create([

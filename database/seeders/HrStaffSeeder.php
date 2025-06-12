@@ -28,10 +28,37 @@ class HrStaffSeeder extends Seeder
         activity()->withoutLogs(function () {
             $employee = Employee::factory()->create();
 
+            // Get or create job title
+            $hrJobTitle = JobTitle::where('job_title', 'HR Staff')->first();
+            if (!$hrJobTitle) {
+                $hrJobTitle = JobTitle::where('job_title', 'LIKE', '%HR%')->first();
+                if (!$hrJobTitle) {
+                    $hrJobTitle = JobTitle::inRandomOrder()->first();
+                    if (!$hrJobTitle) {
+                        $hrJobTitle = JobTitle::factory()->create(['job_title' => 'HR Staff']);
+                    }
+                }
+            }
+
+            // Get or create area
+            $headOffice = SpecificArea::where('area_name', 'Head Office')->first();
+            if (!$headOffice) {
+                $headOffice = SpecificArea::inRandomOrder()->first();
+                if (!$headOffice) {
+                    $headOffice = SpecificArea::factory()->create(['area_name' => 'Head Office']);
+                }
+            }
+
+            // Get or create shift
+            $shift = Shift::inRandomOrder()->first();
+            if (!$shift) {
+                $shift = Shift::factory()->create();
+            }
+
             $employee->jobDetail()->updateOrCreate([
-                'job_title_id'  => JobTitle::where('job_title', 'HR Staff')->first()->job_title_id,
-                'area_id'       => SpecificArea::where('area_name', 'Head Office')->first()->area_id,
-                'shift_id'      => Shift::inRandomOrder()->first()->shift_id,
+                'job_title_id'  => $hrJobTitle->job_title_id,
+                'area_id'       => $headOffice->area_id,
+                'shift_id'      => $shift->shift_id,
                 'emp_status_id' => EmploymentStatus::REGULAR,
             ]);
 

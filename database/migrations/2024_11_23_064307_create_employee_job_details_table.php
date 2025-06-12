@@ -60,7 +60,7 @@ return new class extends Migration
                 'shift_id',
                 'emp_status_id',
                 'application_id',
-            ]);
+            ], 'emp_job_details_main_idx');
         });
     }
 

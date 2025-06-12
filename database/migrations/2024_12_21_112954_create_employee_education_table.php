@@ -4,6 +4,7 @@ use App\Models\Employee;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 
 return new class extends Migration
 {
@@ -22,7 +23,7 @@ return new class extends Migration
 
             $table->longText('education');
             $table->timestamps();
-            $table->index(['education']);
+            $table->index([DB::raw('education(255)')], 'employee_education_education_index');
         });
     }
 

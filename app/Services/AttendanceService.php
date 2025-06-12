@@ -21,7 +21,8 @@ class AttendanceService
      */
     public function __construct()
     {
-        $this->storedDtrLogs = AttendanceLog::today()->get();
+        // Temporarily commented out to prevent database access before migrations
+        // $this->storedDtrLogs = AttendanceLog::today()->get();
     }
 
     /**

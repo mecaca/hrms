@@ -160,7 +160,7 @@ return new class extends Migration
                 ->cascadeOnDelete();
             
             $table->foreignIdFor(ProbationaryPerformance::class, 'probationary_performance_id')
-                ->constrained('probationary_performances', 'probationary_performance_id')
+                ->constrained('probationary_performances', 'probationary_performance_id', 'pp_rating_pp_id_fk')
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
         });

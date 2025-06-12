@@ -17,9 +17,9 @@ class CacheAnnualReport extends Command
     {
         parent::__construct();
 
-        $this->year = now()->subYear()->year;
-
-        $this->holidays = Holiday::all();
+        // Temporarily commented out to prevent database access before migrations
+        // $this->year = now()->subYear()->year;
+        // $this->holidays = Holiday::all();
     }
 
     /**

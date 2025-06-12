@@ -22,8 +22,19 @@ class EmployeeShiftSeeder extends Seeder
         $shifts = Shift::all();
 
         $employeeShifts->each(function ($item) use (&$shiftData, $shifts) {
+            $shift = $shifts->firstWhere('shift_name', $item['shift']);
+            
+            if (!$shift) {
+                // Create the shift if it doesn't exist
+                $shift = Shift::create([
+                    'shift_name' => $item['shift'],
+                    'start_time' => $item['start_time'],
+                    'end_time' => $item['end_time'],
+                ]);
+            }
+            
             array_push($shiftData, [
-                'shift_id'      => $shifts->firstWhere('shift_name', $item['shift'])->shift_id,
+                'shift_id'      => $shift->shift_id,
                 'start_time'    => Carbon::parse($item['start_time'])->toTimeString(),
                 'end_time'      => Carbon::parse($item['end_time'])->toTimeString(),
                 'created_at'    => now(),

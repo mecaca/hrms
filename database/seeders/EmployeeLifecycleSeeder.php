@@ -19,6 +19,10 @@ class EmployeeLifecycleSeeder extends Seeder
         $data = [];
 
         $employees->each(function ($item) use (&$data) {    
+            // Skip employees without status (null safety)
+            if (!$item->status) {
+                return; // Skip this employee
+            }
 
             $starting = $item->status->emp_status_name === EmploymentStatus::PROBATIONARY->label()
                 ? fake()->dateTimeBetween('-6 months', '-1 month')
