@@ -2,21 +2,37 @@
 
 > **Perfect for deploying to separate organizations quickly and easily**
 
-## ⚡ Super Quick Start (5 minutes)
+## ⚡ Deployment Options
 
-### Option 1: PowerShell (Windows - Recommended)
+### 🌟 Production Deployment (Laravel Forge + Linode + Cloudflare)
+**Recommended for client deployments - Professional, scalable, secure**
+```bash
+# Complete production setup in ~60 minutes
+# See FORGE_LINODE_DEPLOYMENT.md for full guide
+```
+- ✅ **Automated deployments** with Laravel Forge
+- ✅ **Reliable hosting** on Linode cloud servers  
+- ✅ **Global CDN & security** with Cloudflare
+- ✅ **SSL certificates** automatically managed
+- ✅ **Professional deployment** process
+- 💰 **Cost**: ~$17-32/month per organization
+
+### ⚡ Local Development Setup
+**For testing and development**
+
+#### Option 1: PowerShell (Windows - Recommended)
 ```powershell
 # Run this in PowerShell as Administrator
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 ./quick-setup.ps1
 ```
 
-### Option 2: Command Prompt (Windows)
+#### Option 2: Command Prompt (Windows)
 ```cmd
 quick-setup.bat
 ```
 
-### Option 3: Manual Setup
+#### Option 3: Manual Setup
 ```bash
 # Basic setup
 composer install --no-dev --optimize-autoloader
@@ -30,6 +46,15 @@ php artisan organization:setup
 # Start server
 php artisan serve
 ```
+
+## 📚 Deployment Guides
+
+| Deployment Type | Guide | Best For | Time | Cost |
+|---|---|---|---|---|
+| **Production** | `FORGE_LINODE_DEPLOYMENT.md` | Client deployments | 60-90 min | $17-32/month |
+| **Quick Local** | `QUICK_DEPLOYMENT.md` | Development/testing | 5-10 min | Free |
+| **Manual Setup** | `ORGANIZATION_SETUP.md` | Custom configurations | 15-30 min | Free |
+| **Checklist** | `FORGE_DEPLOYMENT_CHECKLIST.md` | Step-by-step guide | - | - |
 
 ## 🎯 What You Get
 
