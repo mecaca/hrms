@@ -31,22 +31,22 @@ class ProbationaryEmployeesSeeder extends Seeder
 
         $jobFamilies->each(function ($family) {
             $employee = Employee::factory()->create();
-            
+
             // Get job title with null safety and fallback logic
             $jobTitle = $family->jobTitles->first();
-            
+
             if (!$jobTitle) {
                 // If no job titles in this family, try to find any job title
                 $jobTitle = JobTitle::first();
             }
-            
+
             if (!$jobTitle) {
                 // Last resort: create a job title
                 $jobTitle = JobTitle::factory()->create([
                     'job_title' => 'Probationary Employee - ' . $family->job_family_name
                 ]);
             }
-            
+
             $name = $jobTitle->job_title;
 
             $employee->jobDetail()->create([
@@ -71,7 +71,7 @@ class ProbationaryEmployeesSeeder extends Seeder
         $filteredEmail = strtolower($jobFamily).fake()->userName()."@{$validDomains}";
 
         $trimmedEmail = preg_replace('/[\/\s]+/', '.', $filteredEmail);
-        
+
         $newUser = $employee->account()->create([
             'account_type'      => AccountType::EMPLOYEE,
             'account_id'        => $employee->employee_id,

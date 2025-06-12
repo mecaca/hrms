@@ -45,7 +45,7 @@ class PayrollEmployeesSeeder extends Seeder
                 $payrollFamily = JobFamily::with('jobTitles')
                     ->whereLike('job_family_name', "%Payroll%")
                     ->first();
-                
+
                 if ($payrollFamily && $payrollFamily->jobTitles->isNotEmpty()) {
                     $jobTitleId = $payrollFamily->jobTitles->random()->job_title_id;
                 } else {
@@ -83,7 +83,7 @@ class PayrollEmployeesSeeder extends Seeder
             $file = File::json(base_path('resources/js/email-domain-list.json'));
             self::$freeEmailDomain = $file['valid_email'];
             $validDomains = Arr::random(self::$freeEmailDomain);
-    
+
             $userData = [
                 'account_type'      => AccountType::EMPLOYEE,
                 'account_id'        => $employee->employee_id,
@@ -92,9 +92,9 @@ class PayrollEmployeesSeeder extends Seeder
                 'user_status_id'    => UserStatus::ACTIVE,
                 'email_verified_at' => fake()->dateTimeBetween('-10 days', 'now'),
             ];
-    
+
             $employeeUser = User::factory()->create($userData);
-    
+
             $employeeUser->assignRole(UserRole::BASIC);
         });
     }

@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Hash;
 class HrManagerSeeder extends Seeder
 {
     protected static $freeEmailDomain = [];
-    
+
     /**
      * Run the database seeds.
      */
@@ -65,7 +65,7 @@ class HrManagerSeeder extends Seeder
             $file = File::json(base_path('resources/js/email-domain-list.json'));
             self::$freeEmailDomain = $file['valid_email'];
             $validDomains = Arr::random(self::$freeEmailDomain);
-    
+
             $userData = [
                 'account_type'      => AccountType::EMPLOYEE,
                 'account_id'        => $employee->employee_id,
@@ -74,9 +74,9 @@ class HrManagerSeeder extends Seeder
                 'user_status_id'    => UserStatus::ACTIVE,
                 'email_verified_at' => fake()->dateTimeBetween('-10 days', 'now'),
             ];
-    
+
             $employeeUser = User::factory()->create($userData);
-    
+
             $employeeUser->assignRole(UserRole::INTERMEDIATE);
         });
     }

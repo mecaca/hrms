@@ -63,7 +63,7 @@ class JobFamilyOfficerSeeder extends Seeder
                     'job_family_id' => $jobFamily->job_family_id,
                     'supervisor' => $supervisor->employee_id,
                     'office_head' => $officeHead->employee_id,
-                ];  
+                ];
             })->toArray();
 
             // fuck yyou!!
@@ -91,19 +91,19 @@ class JobFamilyOfficerSeeder extends Seeder
 
         // Find job title with null safety and fallback logic
         $jobTitleRecord = JobTitle::whereLike('job_title', "%{$jobTitle}%")->first();
-        
+
         if (!$jobTitleRecord) {
             // Try to find any job title from the same family
             $jobTitleRecord = JobTitle::whereHas('jobFamily', function ($query) use ($jobTitle) {
                 $query->whereLike('job_family_name', "%{$jobTitle}%");
             })->first();
         }
-        
+
         if (!$jobTitleRecord) {
             // Get any existing job title as fallback
             $jobTitleRecord = JobTitle::first();
         }
-        
+
         if (!$jobTitleRecord) {
             // Last resort: create a job title
             $jobTitleRecord = JobTitle::factory()->create(['job_title' => $jobTitle]);

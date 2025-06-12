@@ -18,7 +18,7 @@ class EmployeeLifecycleSeeder extends Seeder
 
         $data = [];
 
-        $employees->each(function ($item) use (&$data) {    
+        $employees->each(function ($item) use (&$data) {
             // Skip employees without status (null safety)
             if (!$item->status) {
                 return; // Skip this employee
@@ -32,7 +32,7 @@ class EmployeeLifecycleSeeder extends Seeder
                 EmploymentStatus::REGULAR->label(),
                 EmploymentStatus::PROBATIONARY->label(),
             ]);
-        
+
             array_push($data, [
                 'employee_id' => $item->employee_id,
                 'started_at' => $starting,

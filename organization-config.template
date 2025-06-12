@@ -1,0 +1,186 @@
+# HRMS Organization Configuration Template
+# Copy this file and customize for each organization
+
+# ===========================================
+# ORGANIZATION INFORMATION
+# ===========================================
+
+COMPANY_NAME="Your Company Name"
+COMPANY_CODE="YOURCODE"
+ADMIN_EMAIL="admin@yourcompany.com"
+ADMIN_PASSWORD="SecurePassword123!"
+COMPANY_PHONE="+1234567890"
+COMPANY_ADDRESS="123 Business St, City, State 12345"
+COMPANY_WEBSITE="https://yourcompany.com"
+
+# ===========================================
+# DEPARTMENTS (Customize as needed)
+# ===========================================
+
+# Default Departments:
+# - Administration
+# - Human Resources
+# - Information Technology
+# - Finance
+# - Operations
+# - Sales & Marketing
+# - Customer Service
+# - Research & Development
+
+# ===========================================
+# JOB FAMILIES (Customize as needed)
+# ===========================================
+
+# Default Job Families:
+# - Executive
+# - Management
+# - Professional
+# - Technical
+# - Administrative
+# - Sales
+# - Customer Service
+# - Operations
+
+# ===========================================
+# LOCATIONS/BRANCHES
+# ===========================================
+
+# Format: LOCATION_NAME="Description"
+HEAD_OFFICE="Main office location"
+# BRANCH_1="Regional office - North"
+# BRANCH_2="Regional office - South"
+
+# ===========================================
+# EMPLOYMENT SETTINGS
+# ===========================================
+
+# Working Hours
+STANDARD_WORK_HOURS=8
+WORK_DAYS_PER_WEEK=5
+
+# Leave Policies (days per year)
+ANNUAL_LEAVE_DAYS=21
+SICK_LEAVE_DAYS=15
+MATERNITY_LEAVE_DAYS=90
+PATERNITY_LEAVE_DAYS=14
+
+# ===========================================
+# PAYROLL SETTINGS
+# ===========================================
+
+# Pay Periods
+PAY_FREQUENCY="monthly"  # weekly, bi-weekly, monthly, quarterly
+
+# Currency
+CURRENCY="USD"
+CURRENCY_SYMBOL="$"
+
+# Tax Settings (customize based on location)
+DEFAULT_TAX_RATE=0.15
+SOCIAL_SECURITY_RATE=0.062
+MEDICARE_RATE=0.0145
+
+# ===========================================
+# SYSTEM SETTINGS
+# ===========================================
+
+# Timezone
+APP_TIMEZONE="UTC"
+
+# Locale
+APP_LOCALE="en"
+
+# Features to Enable/Disable
+ENABLE_EMPLOYEE_SELF_SERVICE=true
+ENABLE_MOBILE_APP=true
+ENABLE_BIOMETRIC_ATTENDANCE=false
+ENABLE_PAYROLL_MODULE=true
+ENABLE_RECRUITMENT_MODULE=true
+ENABLE_PERFORMANCE_MODULE=true
+ENABLE_TRAINING_MODULE=true
+
+# ===========================================
+# NOTIFICATION SETTINGS
+# ===========================================
+
+# Email Notifications
+NOTIFY_LEAVE_REQUESTS=true
+NOTIFY_PAYROLL_GENERATED=true
+NOTIFY_PERFORMANCE_REVIEWS=true
+NOTIFY_BIRTHDAY_REMINDERS=true
+
+# SMS Notifications (if enabled)
+ENABLE_SMS_NOTIFICATIONS=false
+SMS_PROVIDER=""
+SMS_API_KEY=""
+
+# ===========================================
+# SECURITY SETTINGS
+# ===========================================
+
+# Password Requirements
+MIN_PASSWORD_LENGTH=8
+REQUIRE_UPPERCASE=true
+REQUIRE_LOWERCASE=true
+REQUIRE_NUMBERS=true
+REQUIRE_SPECIAL_CHARS=true
+
+# Session Settings
+SESSION_TIMEOUT=120  # minutes
+REMEMBER_ME_DURATION=30  # days
+
+# Two-Factor Authentication
+ENABLE_2FA=false
+2FA_METHOD="email"  # email, sms, app
+
+# ===========================================
+# BACKUP SETTINGS
+# ===========================================
+
+# Automatic Backups
+ENABLE_AUTO_BACKUP=true
+BACKUP_FREQUENCY="daily"  # daily, weekly, monthly
+BACKUP_RETENTION_DAYS=30
+
+# Backup Storage
+BACKUP_STORAGE="local"  # local, s3, google, dropbox
+
+# ===========================================
+# INTEGRATION SETTINGS
+# ===========================================
+
+# Email Service
+MAIL_MAILER="smtp"
+MAIL_HOST="smtp.gmail.com"
+MAIL_PORT=587
+MAIL_USERNAME=""
+MAIL_PASSWORD=""
+MAIL_ENCRYPTION="tls"
+
+# Cloud Storage (optional)
+CLOUD_STORAGE_PROVIDER=""  # aws, google, azure
+CLOUD_STORAGE_BUCKET=""
+CLOUD_STORAGE_KEY=""
+CLOUD_STORAGE_SECRET=""
+
+# ===========================================
+# CUSTOMIZATION NOTES
+# ===========================================
+
+# Logo Requirements:
+# - Format: PNG, JPG, or SVG
+# - Recommended size: 200x200px
+# - Maximum file size: 2MB
+
+# Color Scheme:
+# - Primary Color: #your-primary-color
+# - Secondary Color: #your-secondary-color
+# - Accent Color: #your-accent-color
+
+# Custom Fields:
+# List any additional employee fields needed:
+# - Employee ID format
+# - Additional contact information
+# - Custom departments/roles
+# - Certification tracking
+# - Emergency contact requirements

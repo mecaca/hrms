@@ -18,12 +18,12 @@ class EmployeeShiftSeeder extends Seeder
         $employeeShifts = collect(Storage::json('public/utils/employee-shifts.json'));
 
         $shiftData = [];
-        
+
         $shifts = Shift::all();
 
         $employeeShifts->each(function ($item) use (&$shiftData, $shifts) {
             $shift = $shifts->firstWhere('shift_name', $item['shift']);
-            
+
             if (!$shift) {
                 // Create the shift if it doesn't exist
                 $shift = Shift::create([
@@ -32,7 +32,7 @@ class EmployeeShiftSeeder extends Seeder
                     'end_time' => $item['end_time'],
                 ]);
             }
-            
+
             array_push($shiftData, [
                 'shift_id'      => $shift->shift_id,
                 'start_time'    => Carbon::parse($item['start_time'])->toTimeString(),
