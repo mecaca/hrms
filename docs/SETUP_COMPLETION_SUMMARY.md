@@ -17,7 +17,7 @@
 ### 3. **Documentation Created**
 - ✅ `ORGANIZATION_SETUP.md` - Comprehensive setup guide
 - ✅ `QUICK_DEPLOYMENT.md` - Quick deployment instructions
-- ✅ `DEPLOYMENT_README.md` - Complete deployment guide for multiple organizations
+- ✅ `docs/DEPLOYMENT_README.md` - Complete deployment guide for multiple organizations
 - ✅ `organization-config.template` - Configuration template
 
 ### 4. **Testing & Validation**

@@ -271,12 +271,14 @@ php artisan view:cache
 
 ## 📞 Support & Documentation
 
-- **Setup Guide**: `ORGANIZATION_SETUP.md`
-- **Quick Deployment**: `QUICK_DEPLOYMENT.md`
+**📂 All documentation is located in the `/docs/` folder**
+
+- **Setup Guide**: `docs/ORGANIZATION_SETUP.md`
+- **Quick Deployment**: `docs/QUICK_DEPLOYMENT.md`
 - **Configuration Template**: `organization-config.template`
-- **Staff User Guide**: `USER_GUIDE_STAFF.md`
-- **Administrator Guide**: `USER_GUIDE_ADMIN.md`
-- **Training Guide**: `TRAINING_GUIDE.md`
+- **Staff User Guide**: `docs/USER_GUIDE_STAFF.md`
+- **Administrator Guide**: `docs/USER_GUIDE_ADMIN.md`
+- **Training Guide**: `docs/TRAINING_GUIDE.md`
 - **Application Logs**: `storage/logs/laravel.log`
 
 ---

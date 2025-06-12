@@ -19,7 +19,7 @@
 ### **Updated Files**
 | File | Changes |
 |------|---------|
-| `DEPLOYMENT_README.md` | Added Forge + Linode + Cloudflare as primary deployment option |
+| `docs/DEPLOYMENT_README.md` | Added Forge + Linode + Cloudflare as primary deployment option |
 
 ## 🚀 Production Deployment Workflow
 
@@ -99,7 +99,7 @@ php artisan organization:setup \
 ## 📚 Documentation Structure
 
 ### **Quick Access Guide**
-1. **New to HRMS deployment?** → Start with `DEPLOYMENT_README.md`
+1. **New to HRMS deployment?** → Start with `docs/DEPLOYMENT_README.md`
 2. **Ready for production?** → Follow `FORGE_LINODE_DEPLOYMENT.md`
 3. **Need step-by-step guide?** → Use `FORGE_DEPLOYMENT_CHECKLIST.md`
 4. **Daily operations?** → Reference `FORGE_QUICK_REFERENCE.md`
@@ -108,16 +108,17 @@ php artisan organization:setup \
 ### **File Organization**
 ```
 HRMS Deployment Kit/
-├── 📋 Main Guides
-│   ├── DEPLOYMENT_README.md (Overview)
-│   ├── FORGE_LINODE_DEPLOYMENT.md (Production)
-│   └── ORGANIZATION_SETUP.md (Manual)
-├── 🔧 Configuration
-│   ├── CLOUDFLARE_CONFIG.md
-│   └── FORGE_QUICK_REFERENCE.md
-├── ✅ Checklists
-│   ├── FORGE_DEPLOYMENT_CHECKLIST.md
-│   └── DEPLOYMENT_CHECKLIST.md
+├── 📁 docs/
+│   ├── 📋 Main Guides
+│   │   ├── DEPLOYMENT_README.md (Overview)
+│   │   ├── FORGE_LINODE_DEPLOYMENT.md (Production)
+│   │   └── ORGANIZATION_SETUP.md (Manual)
+│   ├── 🔧 Configuration
+│   │   ├── CLOUDFLARE_CONFIG.md
+│   │   └── FORGE_QUICK_REFERENCE.md
+│   ├── ✅ Checklists
+│   │   ├── FORGE_DEPLOYMENT_CHECKLIST.md
+│   │   └── DEPLOYMENT_CHECKLIST.md
 ├── 🤖 Scripts
 │   ├── forge-deploy.sh
 │   ├── forge-deployment-script.sh

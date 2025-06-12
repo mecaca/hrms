@@ -81,9 +81,9 @@
 ### Support Setup
 - [ ] Document admin credentials (securely)
 - [ ] Provide comprehensive user guides:
-  - [ ] Staff User Guide (`USER_GUIDE_STAFF.md`)
-  - [ ] Administrator Guide (`USER_GUIDE_ADMIN.md`)
-  - [ ] Training Implementation Guide (`TRAINING_GUIDE.md`)
+  - [ ] Staff User Guide (`docs/USER_GUIDE_STAFF.md`)
+  - [ ] Administrator Guide (`docs/USER_GUIDE_ADMIN.md`)
+  - [ ] Training Implementation Guide (`docs/TRAINING_GUIDE.md`)
 - [ ] Set up support contact information
 - [ ] Schedule follow-up training sessions
 - [ ] Establish ongoing support procedures
@@ -128,4 +128,4 @@
 4. Set up regular backups
 5. Schedule system maintenance
 
-**Support:** Refer to DEPLOYMENT_README.md for detailed instructions and troubleshooting.
+**Support:** Refer to docs/DEPLOYMENT_README.md for detailed instructions and troubleshooting.

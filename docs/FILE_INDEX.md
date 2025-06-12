@@ -1,5 +1,7 @@
 # 📁 HRMS Multi-Organization Deployment Kit - File Index
 
+**📂 Location**: All documentation files are now located in the `/docs/` folder.
+
 ## 🚀 Core Deployment Files
 
 ### **Laravel Commands** (`app/Console/Commands/`)
@@ -38,7 +40,7 @@
 ### **Setup Guides**
 | File | Purpose | Audience |
 |------|---------|----------|
-| `DEPLOYMENT_README.md` | **MAIN GUIDE** - Complete deployment documentation | Technical teams |
+| `docs/DEPLOYMENT_README.md` | **MAIN GUIDE** - Complete deployment documentation | Technical teams |
 | `ORGANIZATION_SETUP.md` | Detailed setup instructions | System administrators |
 | `QUICK_DEPLOYMENT.md` | Quick start guide | All users |
 | `DEPLOYMENT_CHECKLIST.md` | Step-by-step checklist | Deployment teams |
@@ -149,4 +151,4 @@ php artisan organization:setup
 
 ---
 
-**For the latest information and updates, refer to `DEPLOYMENT_README.md`**
+**For the latest information and updates, refer to `docs/DEPLOYMENT_README.md`**
